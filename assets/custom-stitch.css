@@ -432,11 +432,11 @@
    ============================================================ */
 
 /*
-  Especificidad: variant-radios .product-form__input--pill input[type="radio"] + .variant-swatch-label
+  Especificidad: variant-radios .product-form__input input[type="radio"] + .variant-swatch-label
   = (0,3,2) — supera los selectores de Dawn sin necesitar !important.
 */
 
-variant-radios .product-form__input--pill input[type="radio"] + .variant-swatch-label {
+variant-radios .product-form__input input[type="radio"] + .variant-swatch-label {
   position: relative;
   width: 2rem;
   height: 2rem;
@@ -448,6 +448,15 @@ variant-radios .product-form__input--pill input[type="radio"] + .variant-swatch-
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+
+/* Extiende el área de toque a 44×44px sin afectar el visual del círculo */
+variant-radios .product-form__input input[type="radio"] + .variant-swatch-label::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
 }
 
 .variant-swatch__dot {
@@ -489,21 +498,29 @@ variant-radios .product-form__input--pill input[type="radio"] + .variant-swatch-
   border-top-color: #111827;
 }
 
-.variant-swatch-label:hover .variant-swatch__tooltip {
+.variant-swatch-label:hover .variant-swatch__tooltip,
+.variant-swatch-label:focus-within .variant-swatch__tooltip {
   opacity: 1;
 }
 
+/* Focus ring para navegación por teclado */
+variant-radios .product-form__input input[type="radio"]:focus-visible + .variant-swatch-label {
+  outline: 2px solid #111827;
+  outline-offset: 3px;
+}
+
 /* Estado seleccionado — especificidad (0,4,2) */
-variant-radios .product-form__input--pill input[type="radio"]:checked + .variant-swatch-label {
+variant-radios .product-form__input input[type="radio"]:checked + .variant-swatch-label {
   background-color: transparent;
   color: transparent;
   border-color: #111827;
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #111827;
 }
 
-/* Agotado */
-variant-radios .product-form__input--pill input[type="radio"].disabled + .variant-swatch-label .variant-swatch__dot {
-  opacity: 0.35;
+/* Agotado — reduce visibilidad de todo el label, no solo el dot */
+variant-radios .product-form__input input[type="radio"].disabled + .variant-swatch-label {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 @media (prefers-reduced-motion: reduce) {
