@@ -45,6 +45,9 @@
         "quantity_with_buy_bGE8Nk",
         "description"
       ],
+      "custom_css": [
+        ".product-form__inline-row{}"
+      ],
       "settings": {
         "enable_sticky_info": true,
         "media_size": "large",
