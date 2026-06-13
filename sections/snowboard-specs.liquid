@@ -18,7 +18,7 @@
             {{ product.title }}
             <em>Specs</em>
           </h2>
-          {%- if product.description != blank -%}
+          {%- if product.description = blank -%}
             <p class="snowboard-specs__subtitle">Complete snowboard variants. Pre-tuned, waxed, and ready to ride.</p>
           {%- endif -%}
         </div>
@@ -139,10 +139,12 @@
       }
 
       .snowboard-specs__subtitle {
-        color: #6b7280;
+        color: #121212;
         font-size: 1rem;
         margin: 0;
-        max-width: 48ch;
+        font-family: 'DM Sans'
+        , Arial
+        , sans-serif;
       }
 
       .snowboard-specs__grid {
