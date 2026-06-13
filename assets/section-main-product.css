@@ -199,7 +199,7 @@ fieldset.product-form__input .form__label {
   color: rgb(var(--color-foreground));
   display: inline-block;
   margin: 0.7rem 0.5rem 0.2rem 0;
-  padding: 1rem 2rem;
+  padding: 1rem 3.3rem;
   font-size: 1.4rem;
   letter-spacing: 0.1rem;
   line-height: 1;
@@ -1599,3 +1599,12 @@ a.product__text {
     border: none;
   }
 }
+
+   .product-form__inline-row {
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 1rem;
+                }
+                .product-form__inline-row .product-form__submit {
+                  flex: 1;
+                }
