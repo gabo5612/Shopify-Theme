@@ -169,7 +169,6 @@
 
 .footer-block__heading,
 .footer-block__heading.inline-richtext {
-  font-size: 0.875rem !important;
   font-weight: 700;
   letter-spacing: 0;
   text-transform: none;
@@ -268,6 +267,9 @@
     margin: 0;
     max-width:100%;
   }
+  .policies {
+    margin-left:6rem;
+  }
 }
 .newsletter-form__field-wrapper{
   max-width: 100%;
@@ -293,7 +295,7 @@
    ============================================================ */
 
 .footer__copyright.caption {
-  font-size: 0.625rem !important;
+
   letter-spacing: 0.06em;
   color: #9ca3af !important;
 }
