@@ -294,7 +294,7 @@
 /* 11px label — legible at badge label scale */
 .product-highlight-badge__label {
   display: block;
-  font-size: 0.6875rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-weight: 700;
@@ -306,7 +306,7 @@
 .product-highlight-badge__title {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 0.35rem 0;
@@ -315,7 +315,7 @@
 
 /* Small caps tagline — 12px minimum */
 .product-highlight-badge__text {
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: #57534E;
   text-transform: uppercase;
   letter-spacing: 0.1em;
