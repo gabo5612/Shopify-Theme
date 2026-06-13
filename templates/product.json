@@ -12,16 +12,44 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "title": { "type": "title", "settings": {} },
-        "vendor": { "type": "text", "settings": { "text": "{{ product.vendor }}", "text_style": "body" } },
-        "variant_picker": { "type": "variant_picker", "settings": { "picker_type": "button" } },
-        "quantity_selector": { "type": "quantity_selector", "disabled": true, "settings": {} },
-        "price": { "type": "price", "settings": {} },
-        "buy_buttons": { "type": "buy_buttons", "settings": { "show_dynamic_checkout": true, "show_gift_card_recipient": false } },
-        "description": { "type": "description", "settings": {} },
-        "share": { "type": "share", "disabled": true, "settings": { "share_label": "Share" } }
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        }
       },
-      "block_order": ["title", "vendor", "variant_picker", "quantity_selector", "price", "buy_buttons", "description", "share"],
+      "block_order": [
+        "title",
+        "price",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "description"
+      ],
       "settings": {
         "enable_sticky_info": true,
         "media_size": "large",
@@ -59,5 +87,9 @@
       }
     }
   },
-  "order": ["main", "snowboard-specs", "related-products"]
+  "order": [
+    "main",
+    "snowboard-specs",
+    "related-products"
+  ]
 }
