@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Complete Snowboard - jose-test-store</title>
+<!-- Tailwind CSS v3 CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="typography">
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #121212;
+    }
+    h1, h2, .serif-font {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+<style data-purpose="custom-styling">
+    .product-grid-card:hover img {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+    .btn-outline {
+      border: 1px solid #e5e5e5;
+    }
+    .btn-outline:hover {
+      border-color: #121212;
+    }
+    .selected-variant {
+      background-color: #000;
+      color: #fff;
+    }
+  </style>
+</head>
+<body class="bg-white">
+<!-- BEGIN: AnnouncementBar -->
+<div class="w-full bg-white py-2 border-b border-gray-100">
+<p class="text-center text-[10px] tracking-widest uppercase font-medium">Welcome to our store</p>
+</div>
+<!-- END: AnnouncementBar -->
+<!-- BEGIN: MainHeader -->
+<header class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex items-center justify-between border-b border-gray-100">
+<div class="flex items-center gap-12">
+<a class="font-bold text-xl tracking-widest uppercase" href="#">jose-test-store</a>
+<nav class="hidden md:flex gap-8 text-xs font-semibold uppercase tracking-widest text-gray-500">
+<a class="hover:text-black transition-colors relative group" href="#">
+        Home
+        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-black transition-all group-hover:w-full"></span>
+</a>
+<a class="hover:text-black transition-colors relative group" href="#">
+        Catalog
+        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-black transition-all group-hover:w-full"></span>
+</a>
+<a class="hover:text-black transition-colors relative group" href="#">
+        Contact
+        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-black transition-all group-hover:w-full"></span>
+</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-1 text-[10px] font-bold cursor-pointer uppercase tracking-tighter">
+      USD 
+      <svg class="h-3 w-3" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<button aria-label="Search" class="p-1 hover:scale-110 transition-transform">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button aria-label="Account" class="p-1 hover:scale-110 transition-transform">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<button aria-label="Cart" class="p-1 hover:scale-110 transition-transform">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</header>
+<!-- END: MainHeader -->
+<main>
+<!-- BEGIN: ProductHero -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:flex lg:items-start lg:gap-16">
+<!-- Product Images Container -->
+<div class="lg:w-1/2 flex justify-center mb-12 lg:mb-0" data-purpose="product-image-display">
+<div class="relative w-full max-w-lg">
+<!-- Using placeholder for the main product image since the full board image URL isn't explicitly segmented in prompt but provided in data -->
+<img alt="The Complete Snowboard - Ice Variant" class="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuzZD6Xxi-uE-EbHxFXc2K8t5uHFjPjsRHJH-I5cLWuTnGK0xq_bvcFdEb2BBeG1373zr9oGGBgYQt63SMdNAGbrocXIigLezIxYbE2iuI12IiG3loSqPnZ6vcZClb9uNPEmZF6g10iqtUqgM7eLD2jwG983oy-mjB1BWBCLXtVhdYqYoBObADjvx_nczKrg71KxS9i6GhbLKUryuPSA4DsRSZq0BfSxWl-eYI6yXjn5or0P4KXALlel4USTGSGh8D4Q"/>
+</div>
+</div>
+<!-- Product Purchase Info -->
+<div class="lg:w-1/2" data-purpose="product-purchase-details">
+<h1 class="text-4xl font-bold mb-2">The Complete Snowboard</h1>
+<p class="text-lg text-gray-800 mb-8">$699.95</p>
+<div class="mb-6">
+<span class="block text-xs uppercase tracking-widest text-gray-500 mb-3">Color</span>
+<div class="flex flex-wrap gap-2">
+<button class="px-6 py-2 text-xs font-medium border border-black bg-black text-white rounded-full">Ice</button>
+<button class="px-6 py-2 text-xs font-medium border border-gray-200 hover:border-black rounded-full">Dawn</button>
+<button class="px-6 py-2 text-xs font-medium border border-gray-200 hover:border-black rounded-full">Powder</button>
+<button class="px-6 py-2 text-xs font-medium border border-gray-200 hover:border-black rounded-full">Electric</button>
+<button class="px-6 py-2 text-xs font-medium border border-gray-200 hover:border-black rounded-full mt-2 lg:mt-0">Sunset</button>
+</div>
+</div>
+<div class="flex flex-col gap-4 max-w-sm">
+<!-- Quantity -->
+<div class="flex items-center justify-between border border-gray-200 px-4 py-3 w-32">
+<button aria-label="Decrease quantity" class="text-lg">−</button>
+<span class="text-sm">1</span>
+<button aria-label="Increase quantity" class="text-lg">+</button>
+</div>
+<!-- Actions -->
+<button class="w-full bg-black text-white py-4 rounded-sm flex items-center justify-center gap-2 text-sm font-medium hover:bg-zinc-800 transition-colors">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            Add to cart
+          </button>
+<button class="w-full bg-black text-white py-4 rounded-sm text-sm font-medium hover:bg-zinc-800 transition-colors">
+            Buy it now
+          </button>
+</div>
+<div class="mt-12 p-6 border border-gray-100 bg-[#f8f9fa] relative overflow-hidden group" data-purpose="product-highlight-badge">
+<div class="absolute top-0 left-0 w-1 h-full bg-[#c53030]"></div>
+<div class="relative z-10">
+<span class="block text-[10px] uppercase tracking-[0.2em] font-bold text-[#c53030] mb-2">Exclusive Quality</span>
+<h3 class="serif-font italic text-2xl mb-1">Premium Snowboard</h3>
+<p class="text-xs text-gray-500 leading-relaxed uppercase tracking-widest">Super Duper <span class="text-black font-bold">Awesome!</span></p>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<svg class="w-24 h-24" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.45l8.27 14.3H3.73L12 5.45z"></path></svg>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ProductHero -->
+<!-- BEGIN: SpecsSection -->
+<section class="bg-[#f8f9fa] py-20 mt-12 border-t border-gray-100">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="mb-12">
+<div class="flex items-center gap-4 mb-2">
+<h3 class="text-[10px] tracking-widest font-bold uppercase text-[#c53030]">What's Inside</h3>
+<div class="h-[1px] w-12 bg-[#c53030]"></div>
+</div>
+<h2 class="text-5xl font-medium">The Complete Snowboard <span class="text-[#c53030] serif-font italic">Specs</span></h2>
+<p class="mt-6 text-gray-600">Complete snowboard variants. Pre-tuned, waxed, and ready to ride.</p>
+</div>
+<!-- Specs Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" data-purpose="spec-grid">
+<!-- Row 1 -->
+<div class="bg-white p-6 border border-gray-200 rounded-sm">
+<h4 class="text-xl font-medium mb-1">Board Type</h4>
+<p class="text-xs text-gray-500 uppercase tracking-wide">All-Mountain</p>
+</div>
+<div class="bg-white p-6 border border-gray-200 rounded-sm">
+<h4 class="text-xl font-medium mb-1">Length</h4>
+<p class="text-xs text-gray-500 uppercase tracking-wide">155 cm</p>
+</div>
+<div class="bg-white p-6 border border-gray-200 rounded-sm">
+<h4 class="text-xl font-medium mb-1">Flex Rating</h4>
+<p class="text-xs text-gray-500 uppercase tracking-wide">Medium</p>
+</div>
+<div class="bg-white p-6 border border-gray-200 rounded-sm">
+<h4 class="text-xl font-medium mb-1">Profile</h4>
+<p class="text-xs text-gray-500 uppercase tracking-wide">Camber</p>
+</div>
+<!-- Row 2 -->
+<div class="bg-white p-6 border border-gray-200 rounded-sm">
+<h4 class="text-xl font-medium mb-1">Core Material</h4>
+<p class="text-xs text-gray-500 uppercase tracking-wide">Aspen/Spruce Blend</p>
+</div>
+<div class="bg-white p-6 border border-gray-200 rounded-sm">
+<h4 class="text-xl font-medium mb-1">Base</h4>
+<p class="text-xs text-gray-500 uppercase tracking-wide">Sintered</p>
+</div>
+<div class="bg-white p-6 border border-gray-200 rounded-sm">
+<h4 class="text-xl font-medium mb-1">Skill Level</h4>
+<p class="text-xs text-gray-500 uppercase tracking-wide">Intermediate</p>
+</div>
+<div class="bg-white p-6 border border-gray-200 rounded-sm">
+<h4 class="text-xl font-medium mb-1">Terrain</h4>
+<p class="text-xs text-gray-500 uppercase tracking-wide">Groomed, All-Mountain</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: SpecsSection -->
+<!-- BEGIN: RelatedProducts -->
+<section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+<h3 class="text-sm font-medium mb-10 text-center lg:text-left">You may also like</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Product 1 -->
+<div class="product-grid-card group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-4 flex items-center justify-center">
+<img alt="Liquid Snowboard" class="h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCws0WYmZRN6UdU2gK1dijdBMsgQ2-H5KbWItJRtffpxzHMQLarsXlRX0w0yoyoVKz9vSFo1AGV0j5KxZQJvefuPY0TBkWocB4-DW-GBrKpAGBuaFOvgia0A-WwiIfsvfbd6cyz7oByCDZmSeSp6nSnCxWMJs_HiEC41a6ERYtzUXUJoeUz2YYMbjJx_DA1HqlF8AjlQv9NghWudM2GyquAxSpoFpWrhtLjMSQ2QLwzPpe0EUuh8NjY"/>
+</div>
+<h4 class="text-xs font-medium mb-1 group-hover:underline">The Collection Snowboard: Liquid</h4>
+<p class="text-[10px] text-gray-600">$749.95</p>
+</div>
+<!-- Product 2 -->
+<div class="product-grid-card group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-4 flex items-center justify-center">
+<img alt="Multi-managed Snowboard" class="h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOOvouZpc68UHODXCZNqNO9-pV9m7tDUfio4n-M6Z5wf5yzOCLcZ6BYTaTMjwg65W5vZ3bvwo-1BaRQ2ryLG_WE4cupTm7GFy0m9DdLVPoFokc6P7HmS9Q5zOfHj71cRFlHoJyH-GPeh0HAqeieET-EZeE7Za4KYDs-t72bfUVBpEqQ-wpWNxd0Do3ZfArW9l-hA7iGsguQXcdPVoRIhZxrRfLzlRM8L7--PCZfTeZ42h8ASEbLM7i"/>
+</div>
+<h4 class="text-xs font-medium mb-1 group-hover:underline">The Multi-managed Snowboard</h4>
+<p class="text-[10px] text-gray-600">$629.95</p>
+</div>
+<!-- Product 3 -->
+<div class="product-grid-card group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden mb-4 flex items-center justify-center">
+<img alt="Multi-location Snowboard" class="h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPQa7t6h2-E-9xwpscfpK3R-ALeyf5PpkrlZ9V8qgCG0yvBmtT7AoIxQH5Qf8JdDRTZ8na9nJnCVXPEm0ATsGEWPKvEoqAsE87B0q2xcNncSn2Gp8MOm3_Y1K3jK0MwjDyIcj3ylQhKF0bA84JyLNNaXN2S_2ZG46YzaE9ev1okdlE0I8NBeCMsT8SvRAzdFBB7c-ckAUgZxAEkCjT2ldwRROhtmKLVJajA0fP7BWl7O7tqUzBqgRm"/>
+</div>
+<h4 class="text-xs font-medium mb-1 group-hover:underline">The Multi-location Snowboard</h4>
+<p class="text-[10px] text-gray-600">$729.95</p>
+</div>
+<!-- Product 4 -->
+<div class="product-grid-card group cursor-pointer relative">
+<span class="absolute top-2 right-2 bg-white px-2 py-1 text-[10px] border border-gray-100 z-10">Sale</span>
+<div class="aspect-[3/4] overflow-hidden mb-4 flex items-center justify-center">
+<img alt="Compare at Price Snowboard" class="h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoiMpozqf6tnnurBfB4PCyJXWB1ZkXmE7PHtn1iQ58X2h6upq01IXE-g437OqJuVW_3qUpsZOhViCVZOoZXX6yiJsg0XD7ju0l-VMKZr1PjvfLwR8Rf6v8YrTJp9d-Ftip9iFjIzpUFjCYeSbBZ8KZkZQkapLX_Rwf4TaDRH6LOWGTU52vrUybJwm6YdZintPtN2oTIneoQI6vWAniKgMzyVicP9mbhi65p7AkZsA1RXjQxtk0Re-g"/>
+</div>
+<h4 class="text-xs font-medium mb-1 group-hover:underline">The Compare at Price Snowboard</h4>
+<p class="text-[10px] text-gray-600">$785.95 <span class="line-through text-gray-400 ml-1">$885.95</span></p>
+</div>
+</div>
+</section>
+<!-- END: RelatedProducts -->
+</main>
+<!-- BEGIN: Footer -->
+<footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-gray-100">
+<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-12">
+<div data-purpose="newsletter">
+<h3 class="text-sm font-semibold mb-2">Join our email list</h3>
+<p class="text-[10px] text-gray-500 mb-6">Get exclusive deals and early access to new products.</p>
+<div class="relative max-w-sm">
+<input class="w-full border-gray-200 py-3 pl-4 pr-12 text-xs focus:ring-black focus:border-black rounded-sm" placeholder="Email address" type="email"/>
+<button aria-label="Subscribe" class="absolute right-4 top-1/2 -translate-y-1/2">
+<svg class="h-4 w-4 text-gray-600" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] text-gray-400">
+<p>© 2026 jose-test-store, Powered by Shopify</p>
+<div class="flex gap-4">
+<a class="hover:text-black" href="#">Terms and Policies</a>
+</div>
+</div>
+</footer>
+<!-- END: Footer -->
+</body></html>
