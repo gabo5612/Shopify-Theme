@@ -162,6 +162,14 @@
         padding: 1.5rem;
         border: 1px solid #e5e7eb;
         border-radius: 2px;
+        transition: transform 0.15s ease-in, box-shadow 0.15s ease-in, border-color 0.15s ease-in;
+      }
+
+      .snowboard-specs__card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        border-color: #8B0000;
+        transition: transform 0.2s ease-out, box-shadow 0.2s ease-out, border-color 0.2s ease-out;
       }
 
       .snowboard-specs__card-title {
@@ -172,9 +180,15 @@
         , serif;
         color: #000000;
         margin: 0 0 0.25rem;
+        transition: color 0.15s ease-in;
         @media (min-width: 750px) {
           font-size: 2.4rem;
         }
+      }
+
+      .snowboard-specs__card:hover .snowboard-specs__card-title {
+        color: #8B0000;
+        transition: color 0.2s ease-out;
       }
 
       .snowboard-specs__card-value {
@@ -189,7 +203,53 @@
           font-size: 1.2rem;
         }
       }
+
+      @keyframes specs-card-in {
+        from { opacity: 0; transform: translateY(18px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      .snowboard-specs__card--enter {
+        animation: specs-card-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .snowboard-specs__card,
+        .snowboard-specs__card:hover {
+          transition: none;
+          transform: none;
+          box-shadow: none;
+        }
+        .snowboard-specs__card-title {
+          transition: none;
+        }
+      }
     </style>
+
+    <script>
+      (function () {
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var cards = document.querySelectorAll('.snowboard-specs__card');
+        if (!cards.length || reducedMotion || !window.IntersectionObserver) return;
+        cards.forEach(function (c) { c.style.opacity = '0'; });
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            var card = entry.target;
+            var idx = Array.prototype.indexOf.call(cards, card);
+            observer.unobserve(card);
+            setTimeout(function () {
+              card.classList.add('snowboard-specs__card--enter');
+              card.addEventListener('animationend', function () {
+                card.classList.remove('snowboard-specs__card--enter');
+                card.style.opacity = '';
+              }, { once: true });
+            }, idx * 60);
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        cards.forEach(function (c) { observer.observe(c); });
+      })();
+    </script>
   {%- endif -%}
 {%- endif -%}
 

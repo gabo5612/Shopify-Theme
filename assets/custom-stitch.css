@@ -321,6 +321,9 @@
   letter-spacing: 0.1em;
   margin: 0;
   line-height: 1.5;
+  a{
+   color:#57534E;
+  }
 }
 
 .product-highlight-badge__text strong {
@@ -346,5 +349,29 @@
 @media (prefers-reduced-motion: reduce) {
   .product-highlight-badge__deco {
     transition: none;
+  }
+}
+
+/* ============================================================
+   MAIN PRODUCT — Page entry animation
+   ============================================================ */
+
+@keyframes stitch-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.product__media-wrapper {
+  animation: stitch-fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.product__info-wrapper {
+  animation: stitch-fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product__media-wrapper,
+  .product__info-wrapper {
+    animation: none;
   }
 }
