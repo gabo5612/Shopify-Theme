@@ -475,7 +475,7 @@ variant-radios .product-form__input input[type="radio"] + .variant-swatch-label:
   transform: translateX(-50%);
   background-color: #111827;
   color: #ffffff;
-  font-size: 0.625rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
