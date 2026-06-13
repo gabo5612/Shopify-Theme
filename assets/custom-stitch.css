@@ -426,3 +426,87 @@
     animation: none;
   }
 }
+
+/* ============================================================
+   VARIANT PICKER — Color swatches
+   ============================================================ */
+
+/* Round swatch label: overrides Dawn's default button-pill style */
+.variant-swatch-label {
+  position: relative !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  min-width: 2rem !important;
+  min-height: 2rem !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  border: 2px solid #e5e7eb !important;
+  overflow: visible !important;
+  background: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.variant-swatch__dot {
+  display: block;
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Tooltip shown on hover */
+.variant-swatch__tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #111827;
+  color: #ffffff;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  z-index: 20;
+}
+
+.variant-swatch__tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: #111827;
+}
+
+.variant-swatch-label:hover .variant-swatch__tooltip {
+  opacity: 1;
+}
+
+/* Selected ring */
+input[type="radio"]:checked + .variant-swatch-label {
+  border-color: #111827 !important;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #111827 !important;
+  background-color: transparent !important;
+  color: transparent !important;
+}
+
+/* Sold-out / disabled swatch */
+input.disabled + .variant-swatch-label .variant-swatch__dot {
+  opacity: 0.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .variant-swatch__tooltip {
+    transition: none;
+  }
+}

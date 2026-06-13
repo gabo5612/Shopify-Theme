@@ -59,8 +59,19 @@
         class="disabled"
       {% endif %}
     >
-    <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-      {{ value -}}
+    <label
+      for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+      {%- if value.swatch.color != blank or value.swatch.image != blank %} class="variant-swatch-label"{% endif %}
+    >
+      {%- if value.swatch.color != blank -%}
+        <span class="variant-swatch__dot" style="background-color: {{ value.swatch.color }};"></span>
+        <span class="variant-swatch__tooltip">{{ value }}</span>
+      {%- elsif value.swatch.image != blank -%}
+        <span class="variant-swatch__dot" style="background-image: url('{{ value.swatch.image | image_url: width: 48 }}'); background-size: cover; background-position: center;"></span>
+        <span class="variant-swatch__tooltip">{{ value }}</span>
+      {%- else -%}
+        {{- value -}}
+      {%- endif -%}
       <span class="visually-hidden">{{ 'products.product.variant_sold_out_or_unavailable' | t }}</span>
     </label>
   {%- elsif block.settings.picker_type == 'dropdown' -%}
