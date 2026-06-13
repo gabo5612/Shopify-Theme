@@ -451,7 +451,7 @@ variant-radios .product-form__input input[type="radio"] + .variant-swatch-label 
   cursor: pointer;
 }
 
-/* Extiende el área de toque a 44×44px sin afectar el visual del círculo */
+/* Extends touch area to 44×44px without affecting the visual circle */
 variant-radios .product-form__input input[type="radio"] + .variant-swatch-label::before {
   content: '';
   position: absolute;
@@ -503,13 +503,13 @@ variant-radios .product-form__input input[type="radio"] + .variant-swatch-label:
   opacity: 1;
 }
 
-/* Focus ring para navegación por teclado */
+/* Focus ring for keyboard navigation */
 variant-radios .product-form__input input[type="radio"]:focus-visible + .variant-swatch-label {
   outline: 2px solid #111827;
   outline-offset: 3px;
 }
 
-/* Estado seleccionado — especificidad (0,4,2) */
+/* Selected state — specificity (0,4,2) */
 variant-radios .product-form__input input[type="radio"]:checked + .variant-swatch-label {
   background-color: transparent;
   color: transparent;
