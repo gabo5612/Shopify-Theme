@@ -314,19 +314,64 @@
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
             {%- when 'card_variation_info' -%}
               {%- assign card_variant = product.selected_or_first_available_variant -%}
-              {%- if card_variant.metafields.custom.card_subheading != blank -%}
-                <div class="product-highlight-badge" {{ block.shopify_attributes }}>
-                  <div class="product-highlight-badge__bar"></div>
-                  <div class="product-highlight-badge__inner">
-                    <span class="product-highlight-badge__label">{{ card_variant.metafields.custom.card_subheading }}</span>
-                    <h3 class="product-highlight-badge__title">{{ card_variant.metafields.custom.card_heading }}</h3>
-                    <div class="product-highlight-badge__text rte">{{ card_variant.metafields.custom.card_description.value }}</div>
-                  </div>
-                  <svg class="product-highlight-badge__deco" width="96" height="96" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 2L1 21h22L12 2zm0 3.45l8.27 14.3H3.73L12 5.45z"/>
-                  </svg>
+              <script type="application/json" id="CardVariantMeta-{{ section.id }}">
+                {
+                  {%- for v in product.variants -%}
+                    "{{ v.id }}": {
+                      "card_subheading": {{ v.metafields.custom.card_subheading | json }},
+                      "card_heading": {{ v.metafields.custom.card_heading | json }},
+                      "card_description": {{ v.metafields.custom.card_description | metafield_tag | json }}
+                    }{%- unless forloop.last -%},{%- endunless -%}
+                  {%- endfor -%}
+                }
+              </script>
+              <div
+                id="CardVariationInfo-{{ section.id }}"
+                class="product-highlight-badge{% if card_variant.metafields.custom.card_subheading == blank %} hidden{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                <div class="product-highlight-badge__bar"></div>
+                <div class="product-highlight-badge__inner">
+                  <span class="product-highlight-badge__label">{{ card_variant.metafields.custom.card_subheading }}</span>
+                  <h3 class="product-highlight-badge__title">{{ card_variant.metafields.custom.card_heading }}</h3>
+                  <div class="product-highlight-badge__text">{{ card_variant.metafields.custom.card_description | metafield_tag }}</div>
                 </div>
-              {%- endif -%}
+                <svg class="product-highlight-badge__deco" width="96" height="96" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2L1 21h22L12 2zm0 3.45l8.27 14.3H3.73L12 5.45z"/>
+                </svg>
+              </div>
+              <script>
+                (function () {
+                  var sectionId = '{{ section.id }}';
+                  var badge = document.getElementById('CardVariationInfo-' + sectionId);
+                  var metaEl = document.getElementById('CardVariantMeta-' + sectionId);
+                  if (!badge || !metaEl) return;
+
+                  var metaData = JSON.parse(metaEl.textContent);
+
+                  function updateBadge(variantId) {
+                    var data = metaData[String(variantId)];
+                    if (!data || !data.card_subheading) {
+                      badge.classList.add('hidden');
+                      return;
+                    }
+                    badge.querySelector('.product-highlight-badge__label').textContent = data.card_subheading;
+                    badge.querySelector('.product-highlight-badge__title').textContent = data.card_heading || '';
+                    badge.querySelector('.product-highlight-badge__text').innerHTML = data.card_description || '';
+                    badge.classList.remove('hidden');
+                  }
+
+                  var section = document.querySelector('[data-section="' + sectionId + '"]');
+                  if (!section) return;
+
+                  section.addEventListener('change', function (event) {
+                    if (!event.target.closest('variant-radios, variant-selects')) return;
+                    var form = section.querySelector('form[data-type="add-to-cart-form"]');
+                    var input = form && form.querySelector('[name="id"]');
+                    if (input && input.value) updateBadge(input.value);
+                  });
+                })();
+              </script>
             {%- when 'quantity_with_buy' -%}
            
               {%- liquid
