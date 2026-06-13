@@ -431,33 +431,34 @@
    VARIANT PICKER — Color swatches
    ============================================================ */
 
-/* Round swatch label: overrides Dawn's default button-pill style */
-.variant-swatch-label {
-  position: relative !important;
-  width: 2rem !important;
-  height: 2rem !important;
-  min-width: 2rem !important;
-  min-height: 2rem !important;
-  padding: 0 !important;
-  border-radius: 50% !important;
-  border: 2px solid #e5e7eb !important;
-  overflow: visible !important;
-  background: none !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+/*
+  Especificidad: variant-radios .product-form__input--pill input[type="radio"] + .variant-swatch-label
+  = (0,3,2) — supera los selectores de Dawn sin necesitar !important.
+*/
+
+variant-radios .product-form__input--pill input[type="radio"] + .variant-swatch-label {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid #e5e7eb;
+  overflow: visible;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .variant-swatch__dot {
   display: block;
-  position: absolute;
-  inset: 0;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   background-size: cover;
   background-position: center;
 }
 
-/* Tooltip shown on hover */
 .variant-swatch__tooltip {
   position: absolute;
   bottom: calc(100% + 8px);
@@ -492,16 +493,16 @@
   opacity: 1;
 }
 
-/* Selected ring */
-input[type="radio"]:checked + .variant-swatch-label {
-  border-color: #111827 !important;
-  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #111827 !important;
-  background-color: transparent !important;
-  color: transparent !important;
+/* Estado seleccionado — especificidad (0,4,2) */
+variant-radios .product-form__input--pill input[type="radio"]:checked + .variant-swatch-label {
+  background-color: transparent;
+  color: transparent;
+  border-color: #111827;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #111827;
 }
 
-/* Sold-out / disabled swatch */
-input.disabled + .variant-swatch-label .variant-swatch__dot {
+/* Agotado */
+variant-radios .product-form__input--pill input[type="radio"].disabled + .variant-swatch-label .variant-swatch__dot {
   opacity: 0.35;
 }
 
