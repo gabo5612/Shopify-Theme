@@ -438,11 +438,11 @@
 
 variant-radios .product-form__input input[type="radio"] + .variant-swatch-label {
   position: relative;
-  width: 2rem;
-  height: 2rem;
+  width: 4rem;
+  height: 4rem;
   padding: 0;
   border-radius: 50%;
-  border: 2px solid #e5e7eb;
+  border: 1px solid #e5e7eb;
   overflow: visible;
   background: transparent;
   display: inline-flex;
@@ -514,7 +514,7 @@ variant-radios .product-form__input input[type="radio"]:checked + .variant-swatc
   background-color: transparent;
   color: transparent;
   border-color: #111827;
-  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #111827;
+ 
 }
 
 /* Agotado — reduce visibilidad de todo el label, no solo el dot */
