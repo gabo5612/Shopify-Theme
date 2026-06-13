@@ -36,6 +36,10 @@
         "description": {
           "type": "description",
           "settings": {}
+        },
+        "card_variation_info_3znTm4": {
+          "type": "card_variation_info",
+          "settings": {}
         }
       },
       "block_order": [
@@ -43,10 +47,11 @@
         "price",
         "variant_picker",
         "quantity_with_buy_bGE8Nk",
-        "description"
+        "description",
+        "card_variation_info_3znTm4"
       ],
       "custom_css": [
-        ".product-form__inline-row{}"
+        ".product-form__inline-row {}"
       ],
       "settings": {
         "enable_sticky_info": true,
