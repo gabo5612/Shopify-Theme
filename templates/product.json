@@ -26,12 +26,8 @@
             "picker_type": "button"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "settings": {}
-        },
-        "buy_buttons": {
-          "type": "buy_buttons",
+        "quantity_with_buy_bGE8Nk": {
+          "type": "quantity_with_buy",
           "settings": {
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": false
@@ -46,8 +42,7 @@
         "title",
         "price",
         "variant_picker",
-        "quantity_selector",
-        "buy_buttons",
+        "quantity_with_buy_bGE8Nk",
         "description"
       ],
       "settings": {
