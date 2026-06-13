@@ -278,10 +278,8 @@
           }
         }
 
-        // On variant change: swap the visible grid and animate the new cards in
-        document.addEventListener('variant:change', function (e) {
-          if (!e.detail || !e.detail.variant) return;
-          var variantId = String(e.detail.variant.id);
+        function showVariantGrid(variantId) {
+          variantId = String(variantId);
           section.querySelectorAll('.snowboard-specs__grid[data-variant-id]').forEach(function (grid) {
             if (grid.dataset.variantId === variantId) {
               grid.style.display = '';
@@ -292,7 +290,34 @@
               grid.setAttribute('aria-hidden', 'true');
             }
           });
+        }
+
+        // Primary: Dawn's variant:change custom event (bubbles from variant-radios / variant-selects)
+        document.addEventListener('variant:change', function (e) {
+          var variantId = e.detail && e.detail.variant && e.detail.variant.id;
+          if (variantId) showVariantGrid(variantId);
         });
+
+        // Fallback: read checked radios / selected options directly from the picker
+        var picker = document.querySelector('variant-radios, variant-selects');
+        if (picker) {
+          var variantData = [];
+          try { variantData = JSON.parse(picker.querySelector('script[type="application/json"]').textContent); } catch (err) {}
+
+          picker.addEventListener('change', function () {
+            // Collect selected values in fieldset/option DOM order → matches option1, option2, option3
+            var selected = Array.from(
+              picker.querySelectorAll('input[type="radio"]:checked, select')
+            ).map(function (el) { return el.value; });
+
+            var matched = variantData.find(function (v) {
+              return Array.isArray(v.options) &&
+                     v.options.length === selected.length &&
+                     v.options.every(function (opt, i) { return opt === selected[i]; });
+            });
+            if (matched) showVariantGrid(matched.id);
+          });
+        }
       })();
     </script>
   {%- endif -%}
