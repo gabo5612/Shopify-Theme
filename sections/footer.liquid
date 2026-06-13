@@ -71,6 +71,9 @@
                 {%- if block.settings.heading != blank -%}
                   <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
                 {%- endif -%}
+                {%- if block.settings.subheading != blank -%}
+                  <span class="footer-block__subheading inline-richtext">{{- block.settings.subheading -}}</span>
+                {%- endif -%}
 
                 {%- case block.type -%}
                   {%- when '@app' -%}
@@ -513,6 +516,12 @@
       "default": "Subscribe to our emails",
       "label": "t:sections.footer.settings.newsletter_heading.label"
     },
+      {
+      "type": "inline_richtext",
+      "id": "newsletter_subheading",
+      "default": "Subscribe to our emails",
+      "label": "t:sections.footer.settings.newsletter_subheading.label"
+    },
     {
       "type": "header",
       "content": "t:sections.footer.settings.header__9.content",
@@ -596,6 +605,7 @@
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"
     },
+    
     {
       "type": "range",
       "id": "padding_top",
