@@ -312,17 +312,19 @@
               {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
             {%- when 'buy_buttons' -%}
               {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
-              <div class="product-highlight-badge">
-                <div class="product-highlight-badge__bar"></div>
-                <div class="product-highlight-badge__inner">
-                  <span class="product-highlight-badge__label">Exclusive Quality</span>
-                  <h3 class="product-highlight-badge__title">Premium Snowboard</h3>
-                  <p class="product-highlight-badge__text">Super Duper <strong>Awesome!</strong></p>
+              {%- if product.type == 'Snowboard' -%}
+                <div class="product-highlight-badge">
+                  <div class="product-highlight-badge__bar"></div>
+                  <div class="product-highlight-badge__inner">
+                    <span class="product-highlight-badge__label">Exclusive Quality</span>
+                    <h3 class="product-highlight-badge__title">Premium Snowboard</h3>
+                    <p class="product-highlight-badge__text">Super Duper <strong>Awesome!</strong></p>
+                  </div>
+                  <svg class="product-highlight-badge__deco" width="96" height="96" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 2L1 21h22L12 2zm0 3.45l8.27 14.3H3.73L12 5.45z"/>
+                  </svg>
                 </div>
-                <svg class="product-highlight-badge__deco" width="96" height="96" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2L1 21h22L12 2zm0 3.45l8.27 14.3H3.73L12 5.45z"/>
-                </svg>
-              </div>
+              {%- endif -%}
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}
                 {% liquid
