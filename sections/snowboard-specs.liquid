@@ -1,12 +1,19 @@
 {%- if product.type == 'snowboard' -%}
-  {%- assign mf = product.metafields.custom -%}
-  {%- assign has_specs = false -%}
-  {%- if mf.snowboard_board_type != blank or mf.snowboard_length != blank or mf.snowboard_flex_rating != blank or mf.snowboard_profile != blank or mf.snowboard_core_material != blank or mf.snowboard_base != blank or mf.snowboard_skill_level != blank or mf.snowboard_terrain != blank -%}
-    {%- assign has_specs = true -%}
-  {%- endif -%}
+  {%- comment -%} Check if at least one variant has any spec metafield filled in {%- endcomment -%}
+  {%- assign has_any_variant_specs = false -%}
+  {%- for variant in product.variants -%}
+    {%- assign v_mf = variant.metafields.custom -%}
+    {%- if v_mf.snowboard_board_type != blank or v_mf.snowboard_length != blank or v_mf.snowboard_flex_rating != blank or v_mf.snowboard_profile != blank or v_mf.snowboard_core_material != blank or v_mf.snowboard_base != blank or v_mf.snowboard_skill_level != blank or v_mf.snowboard_terrain != blank -%}
+      {%- assign has_any_variant_specs = true -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
 
-  {%- if has_specs -%}
-    <section class="snowboard-specs">
+  {%- if has_any_variant_specs -%}
+    {%- assign selected_id = product.selected_or_first_available_variant.id -%}
+    <section class="snowboard-specs"
+             data-section-id="{{ section.id }}"
+             data-initial-variant="{{ selected_id }}">
       <div class="page-width snowboard-specs__inner">
 
         <div class="snowboard-specs__header">
@@ -21,56 +28,61 @@
           <p class="snowboard-specs__subtitle">Complete snowboard variants. Pre-tuned, waxed, and ready to ride.</p>
         </div>
 
-        <div class="snowboard-specs__grid">
-          {%- if mf.snowboard_board_type != blank -%}
-            <div class="snowboard-specs__card">
-              <h3 class="snowboard-specs__card-title">Board Type</h3>
-              <p class="snowboard-specs__card-value">{{ mf.snowboard_board_type.value }}</p>
-            </div>
-          {%- endif -%}
-          {%- if mf.snowboard_length != blank -%}
-            <div class="snowboard-specs__card">
-              <h3 class="snowboard-specs__card-title">Length</h3>
-              <p class="snowboard-specs__card-value">{{ mf.snowboard_length.value }}</p>
-            </div>
-          {%- endif -%}
-          {%- if mf.snowboard_flex_rating != blank -%}
-            <div class="snowboard-specs__card">
-              <h3 class="snowboard-specs__card-title">Flex Rating</h3>
-              <p class="snowboard-specs__card-value">{{ mf.snowboard_flex_rating.value }}</p>
-            </div>
-          {%- endif -%}
-          {%- if mf.snowboard_profile != blank -%}
-            <div class="snowboard-specs__card">
-              <h3 class="snowboard-specs__card-title">Profile</h3>
-              <p class="snowboard-specs__card-value">{{ mf.snowboard_profile.value }}</p>
-            </div>
-          {%- endif -%}
-          {%- if mf.snowboard_core_material != blank -%}
-            <div class="snowboard-specs__card">
-              <h3 class="snowboard-specs__card-title">Core Material</h3>
-              <p class="snowboard-specs__card-value">{{ mf.snowboard_core_material.value }}</p>
-            </div>
-          {%- endif -%}
-          {%- if mf.snowboard_base != blank -%}
-            <div class="snowboard-specs__card">
-              <h3 class="snowboard-specs__card-title">Base</h3>
-              <p class="snowboard-specs__card-value">{{ mf.snowboard_base.value }}</p>
-            </div>
-          {%- endif -%}
-          {%- if mf.snowboard_skill_level != blank -%}
-            <div class="snowboard-specs__card">
-              <h3 class="snowboard-specs__card-title">Skill Level</h3>
-              <p class="snowboard-specs__card-value">{{ mf.snowboard_skill_level.value }}</p>
-            </div>
-          {%- endif -%}
-          {%- if mf.snowboard_terrain != blank -%}
-            <div class="snowboard-specs__card">
-              <h3 class="snowboard-specs__card-title">Terrain</h3>
-              <p class="snowboard-specs__card-value">{{ mf.snowboard_terrain.value }}</p>
-            </div>
-          {%- endif -%}
-        </div>
+        {%- for variant in product.variants -%}
+          {%- assign v_mf = variant.metafields.custom -%}
+          <div class="snowboard-specs__grid"
+               data-variant-id="{{ variant.id }}"
+               {% if variant.id != selected_id %}style="display:none;" aria-hidden="true"{% endif %}>
+            {%- if v_mf.snowboard_board_type != blank -%}
+              <div class="snowboard-specs__card">
+                <h3 class="snowboard-specs__card-title">Board Type</h3>
+                <p class="snowboard-specs__card-value">{{ v_mf.snowboard_board_type.value }}</p>
+              </div>
+            {%- endif -%}
+            {%- if v_mf.snowboard_length != blank -%}
+              <div class="snowboard-specs__card">
+                <h3 class="snowboard-specs__card-title">Length</h3>
+                <p class="snowboard-specs__card-value">{{ v_mf.snowboard_length.value }}</p>
+              </div>
+            {%- endif -%}
+            {%- if v_mf.snowboard_flex_rating != blank -%}
+              <div class="snowboard-specs__card">
+                <h3 class="snowboard-specs__card-title">Flex Rating</h3>
+                <p class="snowboard-specs__card-value">{{ v_mf.snowboard_flex_rating.value }}</p>
+              </div>
+            {%- endif -%}
+            {%- if v_mf.snowboard_profile != blank -%}
+              <div class="snowboard-specs__card">
+                <h3 class="snowboard-specs__card-title">Profile</h3>
+                <p class="snowboard-specs__card-value">{{ v_mf.snowboard_profile.value }}</p>
+              </div>
+            {%- endif -%}
+            {%- if v_mf.snowboard_core_material != blank -%}
+              <div class="snowboard-specs__card">
+                <h3 class="snowboard-specs__card-title">Core Material</h3>
+                <p class="snowboard-specs__card-value">{{ v_mf.snowboard_core_material.value }}</p>
+              </div>
+            {%- endif -%}
+            {%- if v_mf.snowboard_base != blank -%}
+              <div class="snowboard-specs__card">
+                <h3 class="snowboard-specs__card-title">Base</h3>
+                <p class="snowboard-specs__card-value">{{ v_mf.snowboard_base.value }}</p>
+              </div>
+            {%- endif -%}
+            {%- if v_mf.snowboard_skill_level != blank -%}
+              <div class="snowboard-specs__card">
+                <h3 class="snowboard-specs__card-title">Skill Level</h3>
+                <p class="snowboard-specs__card-value">{{ v_mf.snowboard_skill_level.value }}</p>
+              </div>
+            {%- endif -%}
+            {%- if v_mf.snowboard_terrain != blank -%}
+              <div class="snowboard-specs__card">
+                <h3 class="snowboard-specs__card-title">Terrain</h3>
+                <p class="snowboard-specs__card-value">{{ v_mf.snowboard_terrain.value }}</p>
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
 
       </div>
     </section>
@@ -228,26 +240,59 @@
 
     <script>
       (function () {
+        var section = document.querySelector('.snowboard-specs[data-section-id="{{ section.id }}"]');
+        if (!section) return;
+
         var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        var cards = document.querySelectorAll('.snowboard-specs__card');
-        if (!cards.length || reducedMotion || !window.IntersectionObserver) return;
-        cards.forEach(function (c) { c.style.opacity = '0'; });
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (!entry.isIntersecting) return;
-            var card = entry.target;
-            var idx = Array.prototype.indexOf.call(cards, card);
-            observer.unobserve(card);
+
+        function animateCards(grid) {
+          if (reducedMotion) return;
+          var cards = grid.querySelectorAll('.snowboard-specs__card');
+          cards.forEach(function (card, i) {
+            card.style.opacity = '0';
             setTimeout(function () {
               card.classList.add('snowboard-specs__card--enter');
               card.addEventListener('animationend', function () {
                 card.classList.remove('snowboard-specs__card--enter');
                 card.style.opacity = '';
               }, { once: true });
-            }, idx * 60);
+            }, i * 60);
           });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-        cards.forEach(function (c) { observer.observe(c); });
+        }
+
+        // Scroll-triggered entry animation for the initially selected variant grid
+        if (!reducedMotion && window.IntersectionObserver) {
+          var initialVariantId = section.dataset.initialVariant;
+          var initialGrid = section.querySelector('.snowboard-specs__grid[data-variant-id="' + initialVariantId + '"]');
+          if (initialGrid) {
+            initialGrid.querySelectorAll('.snowboard-specs__card').forEach(function (c) {
+              c.style.opacity = '0';
+            });
+            var observer = new IntersectionObserver(function (entries) {
+              if (entries[0].isIntersecting) {
+                observer.disconnect();
+                animateCards(initialGrid);
+              }
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            observer.observe(initialGrid);
+          }
+        }
+
+        // On variant change: swap the visible grid and animate the new cards in
+        document.addEventListener('variant:change', function (e) {
+          if (!e.detail || !e.detail.variant) return;
+          var variantId = String(e.detail.variant.id);
+          section.querySelectorAll('.snowboard-specs__grid[data-variant-id]').forEach(function (grid) {
+            if (grid.dataset.variantId === variantId) {
+              grid.style.display = '';
+              grid.removeAttribute('aria-hidden');
+              animateCards(grid);
+            } else {
+              grid.style.display = 'none';
+              grid.setAttribute('aria-hidden', 'true');
+            }
+          });
+        });
       })();
     </script>
   {%- endif -%}
