@@ -1,14 +1,7 @@
 {%- if product.type == 'snowboard' -%}
   {%- assign mf = product.metafields.custom -%}
   {%- assign has_specs = false -%}
-  {%- if mf.snowboard_board_type != blank
-      or mf.snowboard_length != blank
-      or mf.snowboard_flex_rating != blank
-      or mf.snowboard_profile != blank
-      or mf.snowboard_core_material != blank
-      or mf.snowboard_base != blank
-      or mf.snowboard_skill_level != blank
-      or mf.snowboard_terrain != blank -%}
+  {%- if mf.snowboard_board_type != blank or mf.snowboard_length != blank or mf.snowboard_flex_rating != blank or mf.snowboard_profile != blank or mf.snowboard_core_material != blank or mf.snowboard_base != blank or mf.snowboard_skill_level != blank or mf.snowboard_terrain != blank -%}
     {%- assign has_specs = true -%}
   {%- endif -%}
 
@@ -22,7 +15,8 @@
             <span class="snowboard-specs__eyebrow-line"></span>
           </div>
           <h2 class="snowboard-specs__title">
-            {{ product.title }} <em>Specs</em>
+            {{ product.title }}
+            <em>Specs</em>
           </h2>
           {%- if product.description != blank -%}
             <p class="snowboard-specs__subtitle">Complete snowboard variants. Pre-tuned, waxed, and ready to ride.</p>
@@ -32,49 +26,49 @@
         <div class="snowboard-specs__grid">
           {%- if mf.snowboard_board_type != blank -%}
             <div class="snowboard-specs__card">
-              <h4 class="snowboard-specs__card-title">Board Type</h4>
+              <h3 class="snowboard-specs__card-title">Board Type</h3>
               <p class="snowboard-specs__card-value">{{ mf.snowboard_board_type.value }}</p>
             </div>
           {%- endif -%}
           {%- if mf.snowboard_length != blank -%}
             <div class="snowboard-specs__card">
-              <h4 class="snowboard-specs__card-title">Length</h4>
+              <h3 class="snowboard-specs__card-title">Length</h3>
               <p class="snowboard-specs__card-value">{{ mf.snowboard_length.value }}</p>
             </div>
           {%- endif -%}
           {%- if mf.snowboard_flex_rating != blank -%}
             <div class="snowboard-specs__card">
-              <h4 class="snowboard-specs__card-title">Flex Rating</h4>
+              <h3 class="snowboard-specs__card-title">Flex Rating</h3>
               <p class="snowboard-specs__card-value">{{ mf.snowboard_flex_rating.value }}</p>
             </div>
           {%- endif -%}
           {%- if mf.snowboard_profile != blank -%}
             <div class="snowboard-specs__card">
-              <h4 class="snowboard-specs__card-title">Profile</h4>
+              <h3 class="snowboard-specs__card-title">Profile</h3>
               <p class="snowboard-specs__card-value">{{ mf.snowboard_profile.value }}</p>
             </div>
           {%- endif -%}
           {%- if mf.snowboard_core_material != blank -%}
             <div class="snowboard-specs__card">
-              <h4 class="snowboard-specs__card-title">Core Material</h4>
+              <h3 class="snowboard-specs__card-title">Core Material</h3>
               <p class="snowboard-specs__card-value">{{ mf.snowboard_core_material.value }}</p>
             </div>
           {%- endif -%}
           {%- if mf.snowboard_base != blank -%}
             <div class="snowboard-specs__card">
-              <h4 class="snowboard-specs__card-title">Base</h4>
+              <h3 class="snowboard-specs__card-title">Base</h3>
               <p class="snowboard-specs__card-value">{{ mf.snowboard_base.value }}</p>
             </div>
           {%- endif -%}
           {%- if mf.snowboard_skill_level != blank -%}
             <div class="snowboard-specs__card">
-              <h4 class="snowboard-specs__card-title">Skill Level</h4>
+              <h3 class="snowboard-specs__card-title">Skill Level</h3>
               <p class="snowboard-specs__card-value">{{ mf.snowboard_skill_level.value }}</p>
             </div>
           {%- endif -%}
           {%- if mf.snowboard_terrain != blank -%}
             <div class="snowboard-specs__card">
-              <h4 class="snowboard-specs__card-title">Terrain</h4>
+              <h3 class="snowboard-specs__card-title">Terrain</h3>
               <p class="snowboard-specs__card-value">{{ mf.snowboard_terrain.value }}</p>
             </div>
           {%- endif -%}
@@ -89,6 +83,9 @@
         padding: 5rem 0;
         margin-top: 3rem;
         border-top: 1px solid #e5e7eb;
+        font-family: 'Lora'
+        , Georgia
+        , serif;
       }
 
       .snowboard-specs__inner {
@@ -109,32 +106,33 @@
       }
 
       .snowboard-specs__eyebrow-label {
-        font-size: 0.6875rem;
+        font-size: 0.8;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.2em;
-        color: #B91C1C;
+        color: #8B0000;
       }
 
       .snowboard-specs__eyebrow-line {
         display: block;
         width: 3rem;
         height: 1px;
-        background-color: #B91C1C;
+        background-color: #8B0000;
       }
 
       .snowboard-specs__title {
         font-size: clamp(2rem, 5vw, 3.5rem);
-        font-weight: 500;
+        font-weight: 700;
         line-height: 1.1;
         color: #121212;
-        margin: 0 0 1.5rem 0;
+        margin: 0 0 1.5rem;
       }
 
       .snowboard-specs__title em {
-        font-family: 'Playfair Display', Georgia, serif;
-        font-style: italic;
-        color: #B91C1C;
+        font-family: 'Lora'
+        , Georgia
+        , serif;
+        color: #8B0000;
       }
 
       .snowboard-specs__subtitle {
@@ -167,7 +165,7 @@
         font-size: 1.1rem;
         font-weight: 500;
         color: #121212;
-        margin: 0 0 0.25rem 0;
+        margin: 0 0 0.25rem;
       }
 
       .snowboard-specs__card-value {
@@ -182,8 +180,8 @@
 {%- endif -%}
 
 {% schema %}
-{
-  "name": "Snowboard Specs",
-  "settings": []
-}
+  {
+    "name": "Snowboard Specs",
+    "settings": []
+  }
 {% endschema %}

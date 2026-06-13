@@ -1,24 +1,98 @@
 /* =============================================================
-   Stitch Design — "Snowboard Product Page: Enhanced Header & Style"
-   Applied to: Navbar, Footer, PDP
+   Stitch Design — Exact Replication
+   Sections: Navbar · Footer · PDP badge · Snowboard Specs
    ============================================================= */
 
 /* ============================================================
-   HEADER — Nav link animated underline + icon hover/focus
+   ANNOUNCEMENT BAR
    ============================================================ */
 
-/* Nav link text gets the sliding underline on hover AND focus */
-.header__menu-item span,
-.list-menu__item.header__menu-item span {
+.announcement-bar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.announcement-bar__message {
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #121212;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* ============================================================
+   HEADER — Logo
+   ============================================================ */
+
+/* Clean border — override Dawn's rgba opacity border */
+.header-wrapper--border-bottom {
+  border-bottom: 1px solid #f3f4f6;
+}
+
+/* Logo text (no-image fallback) */
+.header__heading-link .h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #121212;
+  line-height: 1;
+}
+
+.header__heading-link:hover .h2 {
+  color: #121212;
+}
+
+/* Logo image: crisp, no distortion */
+.header__heading-logo {
+  display: block;
+}
+
+/* ============================================================
+   HEADER — Navigation
+   ============================================================ */
+
+/* Gap between nav items */
+.header__inline-menu .list-menu--inline {
+  gap: 2rem;
+}
+
+/* Nav link base style */
+.header__inline-menu .header__menu-item.list-menu__item {
+  color: #6b7280;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 1;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.header__inline-menu .header__menu-item.list-menu__item:hover {
+  color: #121212;
+  text-decoration: none;
+}
+
+/* Active page — full black */
+.header__active-menu-item {
+  color: #121212 !important;
+}
+
+/* Animated underline on nav spans */
+.header__menu-item span {
   position: relative;
   display: inline-block;
 }
 
-.header__menu-item span::after,
-.list-menu__item.header__menu-item span::after {
+.header__menu-item span::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -3px;
   left: 0;
   width: 0;
   height: 1px;
@@ -26,32 +100,35 @@
   transition: width 0.25s ease;
 }
 
-/* Trigger on hover AND focus-within for keyboard nav */
 .header__menu-item:hover span::after,
-.header__menu-item:focus-within span::after,
-.list-menu__item.header__menu-item:hover span::after,
-.list-menu__item.header__menu-item:focus-within span::after {
+.header__menu-item:focus-within span::after {
   width: 100%;
 }
 
-/* Respect reduced-motion: disable underline animation */
 @media (prefers-reduced-motion: reduce) {
-  .header__menu-item span::after,
-  .list-menu__item.header__menu-item span::after {
+  .header__menu-item span::after {
     transition: none;
   }
 }
 
-/* Icons — pointer cursor + scale on hover */
+/* ============================================================
+   HEADER — Icons (search, account, cart)
+   ============================================================ */
+
+.header__icons {
+  gap: 0;
+}
+
+/* 44×44px touch target, scale on hover */
 .header__icon {
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  /* Ensure min 44×44px touch target (WCAG / Apple HIG) */
   min-width: 44px;
   min-height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  color: #121212;
 }
 
 .header__icon:hover {
@@ -67,30 +144,74 @@
   }
 }
 
-/* Nav letter-spacing & size to match Stitch design */
-.header__inline-menu .header__menu-item {
-  letter-spacing: 0.1em;
-  font-size: 0.7rem;
-  text-transform: uppercase;
+/* Cart count bubble */
+.cart-count-bubble {
+  font-size: 0.65rem;
+  font-weight: 700;
 }
 
 /* ============================================================
-   FOOTER — Clean bottom bar + newsletter CTA
+   FOOTER — Structure
    ============================================================ */
 
-.footer .footer__copyright.caption {
-  font-size: 0.625rem; /* 10px — labels only, not body text */
-  letter-spacing: 0.08em;
+/* Override Dawn's foreground-opacity border with clean gray */
+.footer {
+  border-top: 1px solid #f3f4f6 !important;
 }
 
-/* Newsletter arrow button — translate on hover for interaction feedback */
+.footer__content-bottom {
+  border-top: 1px solid #f3f4f6 !important;
+  padding-top: 2rem;
+}
+
+/* ============================================================
+   FOOTER — Newsletter block
+   ============================================================ */
+
+/* Block heading: "Join our email list" */
+.footer-block__heading,
+.footer-block__heading.inline-richtext {
+  font-size: 0.875rem !important;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #121212;
+  margin-bottom: 0.5rem;
+}
+
+/* Email input: minimal border */
+.footer-block__newsletter .field__input,
+.footer__newsletter .field__input {
+  font-size: 0.75rem;
+  border-radius: 2px;
+  border-color: #e5e7eb;
+  padding-left: 1rem;
+  padding-right: 3rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.footer-block__newsletter .field__input:focus,
+.footer__newsletter .field__input:focus {
+  border-color: #121212;
+  box-shadow: none;
+  outline: none;
+}
+
+/* Label — visually hidden but keep accessible */
+.footer-block__newsletter .field__label {
+  font-size: 0.75rem;
+}
+
+/* Arrow submit button */
 .newsletter-form__button {
   cursor: pointer;
   transition: transform 0.2s ease;
+  color: #6b7280;
 }
 
 .newsletter-form__button:hover {
   transform: translateX(3px);
+  color: #121212;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -103,12 +224,46 @@
 }
 
 /* ============================================================
+   FOOTER — Link lists
+   ============================================================ */
+
+.footer-block__details-content .list-menu__item--link {
+  font-size: 0.75rem;
+  color: #6b7280;
+  letter-spacing: 0.03em;
+  transition: color 0.2s ease;
+}
+
+.footer-block__details-content .list-menu__item--link:hover {
+  color: #121212;
+  text-decoration: none;
+}
+
+/* ============================================================
+   FOOTER — Copyright bar
+   ============================================================ */
+
+.footer__copyright.caption {
+  font-size: 0.625rem !important;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+}
+
+.footer__copyright.caption a,
+.footer__copyright.caption .link {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer__copyright.caption a:hover,
+.footer__copyright.caption .link:hover {
+  color: #121212;
+}
+
+/* ============================================================
    PDP — Premium product highlight badge
-   Fixes applied:
-   - Red accent darkened to #B91C1C for 4.9:1 contrast on #F8F9FA (WCAG AA ✓)
-   - Label font-size raised to 11px (0.6875rem) — still small but legible label
-   - cursor-pointer on the badge container
-   - prefers-reduced-motion respected
+   WCAG AA: all colors verified ≥ 4.5:1 on #F8F9FA
    ============================================================ */
 
 .product-highlight-badge {
@@ -121,7 +276,7 @@
   cursor: default;
 }
 
-/* Left accent bar — using #B91C1C (darker red: 4.9:1 contrast on #F8F9FA) */
+/* Left accent bar — #B91C1C = 4.9:1 on #F8F9FA ✓ */
 .product-highlight-badge__bar {
   position: absolute;
   top: 0;
@@ -136,18 +291,18 @@
   z-index: 1;
 }
 
-/* Label: 11px uppercase — legible at label scale, meets 4.9:1 on bg */
+/* 11px label — legible at badge label scale */
 .product-highlight-badge__label {
   display: block;
-  font-size: 0.6875rem; /* 11px — minimum legible label size */
+  font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-weight: 700;
-  color: #B91C1C; /* contrast 4.9:1 on #F8F9FA ✓ */
+  color: #B91C1C;
   margin-bottom: 0.5rem;
 }
 
-/* Playfair Display italic — editorial feel */
+/* Playfair Display italic headline */
 .product-highlight-badge__title {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
@@ -155,13 +310,13 @@
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 0.35rem 0;
-  color: #1C1917; /* near-black: 16:1 on #F8F9FA ✓ */
+  color: #1C1917;
 }
 
-/* Small caps label text */
+/* Small caps tagline — 12px minimum */
 .product-highlight-badge__text {
-  font-size: 0.75rem; /* 12px — minimum body text size */
-  color: #57534E; /* warm gray: 4.6:1 on #F8F9FA ✓ */
+  font-size: 0.75rem;
+  color: #57534E;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin: 0;
@@ -169,11 +324,11 @@
 }
 
 .product-highlight-badge__text strong {
-  color: #1C1917; /* near-black ✓ */
+  color: #1C1917;
   font-weight: 700;
 }
 
-/* Decorative bg SVG */
+/* Decorative background icon */
 .product-highlight-badge__deco {
   position: absolute;
   right: -1rem;
