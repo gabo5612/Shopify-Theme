@@ -140,10 +140,6 @@ After that, I would review the store’s customer journey, identify conversion o
 
 ## Additional Note
 
-Finally, I noticed that the client mentioned in the email was Mack Weldon. While reviewing the brand online, I noticed that their Shopify storefront appeared to be unavailable at that moment.
-
-I would be happy to help investigate and support getting the site back online as quickly as possible, at no cost.
-
 Thank you again for your consideration. I appreciate the opportunity and look forward to your feedback.
 
 Best regards,
