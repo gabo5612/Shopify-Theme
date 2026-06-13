@@ -151,39 +151,65 @@
 }
 
 /* ============================================================
-   FOOTER — Structure
+   FOOTER — Dark olive design
    ============================================================ */
 
-/* Override Dawn's foreground-opacity border with clean gray */
 .footer {
-  border-top: 1px solid #f3f4f6 !important;
+  background-color: #3C3F1F !important;
+  border-top: none !important;
 }
 
 .footer__content-bottom {
-  border-top: 1px solid #f3f4f6 !important;
-  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding-top: 1.5rem;
 }
 
 /* ============================================================
    FOOTER — Newsletter block
    ============================================================ */
 
-/* Block heading: "Join our email list" */
+/* Center the newsletter content */
+.footer-block--newsletter,
+.footer-block__newsletter {
+  text-align: center;
+}
+
+.footer-block__newsletter .newsletter-form__field-wrapper {
+  max-width: 26rem;
+  margin: 0 auto;
+}
+
+/* Heading: eyebrow label in gold — "Subscribe to our emails" */
 .footer-block__heading,
 .footer-block__heading.inline-richtext {
-  font-size: 0.875rem !important;
+  display: block;
+  font-size: 0.625rem !important;
   font-weight: 600;
-  letter-spacing: 0;
-  color: #121212;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #C4A84F !important;
   margin-bottom: 0.5rem;
 }
 
-/* Email input: minimal border */
+/* Subheading: main descriptor in near-white */
+.footer-block__subheading,
+.footer-block__subheading.inline-richtext {
+  display: block;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88) !important;
+  margin-bottom: 1.5rem;
+}
+
+/* Email input on dark background */
 .footer-block__newsletter .field__input,
 .footer__newsletter .field__input {
+  background-color: transparent !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  color: #ffffff !important;
   font-size: 0.75rem;
   border-radius: 2px;
-  border-color: #e5e7eb;
   padding-left: 1rem;
   padding-right: 3rem;
   padding-top: 0.75rem;
@@ -192,26 +218,27 @@
 
 .footer-block__newsletter .field__input:focus,
 .footer__newsletter .field__input:focus {
-  border-color: #121212;
+  border-color: rgba(255, 255, 255, 0.65) !important;
   box-shadow: none;
   outline: none;
 }
 
-/* Label — visually hidden but keep accessible */
-.footer-block__newsletter .field__label {
+.footer-block__newsletter .field__label,
+.footer__newsletter .field__label {
   font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.45) !important;
 }
 
 /* Arrow submit button */
 .newsletter-form__button {
   cursor: pointer;
   transition: transform 0.2s ease;
-  color: #6b7280;
+  color: rgba(255, 255, 255, 0.55) !important;
 }
 
 .newsletter-form__button:hover {
   transform: translateX(3px);
-  color: #121212;
+  color: #ffffff !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -229,13 +256,13 @@
 
 .footer-block__details-content .list-menu__item--link {
   font-size: 0.75rem;
-  color: #6b7280;
+  color: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.03em;
   transition: color 0.2s ease;
 }
 
 .footer-block__details-content .list-menu__item--link:hover {
-  color: #121212;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -246,19 +273,19 @@
 .footer__copyright.caption {
   font-size: 0.625rem !important;
   letter-spacing: 0.06em;
-  color: #9ca3af;
+  color: rgba(255, 255, 255, 0.4) !important;
 }
 
 .footer__copyright.caption a,
 .footer__copyright.caption .link {
-  color: #9ca3af;
+  color: rgba(255, 255, 255, 0.4) !important;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .footer__copyright.caption a:hover,
 .footer__copyright.caption .link:hover {
-  color: #121212;
+  color: rgba(255, 255, 255, 0.85) !important;
 }
 
 /* ============================================================
